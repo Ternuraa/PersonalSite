@@ -131,23 +131,42 @@
 @media (max-width: 720px) {
   .hero {
     gap: var(--space-40);
+    overflow: visible;
   }
 
   .hero__name {
-    gap: 12px;
+    gap: 10px;
     flex-wrap: nowrap;
     justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    padding: 8px 4px 4px;
+    overflow: visible;
+    box-sizing: border-box;
   }
 
-  .hero__part,
+  .hero__part {
+    font-family: var(--font-display);
+    letter-spacing: -2px;
+    line-height: 1.12;
+    overflow: visible;
+    flex: none;
+  }
+
   .hero__letter {
     font-family: var(--font-display);
     letter-spacing: -2px;
+    overflow: visible;
+    padding: 0 1px;
+  }
+
+  .hero__letter-enter {
+    overflow: visible;
   }
 
   .hero__photo {
-    width: 156px;
-    height: 111px;
+    width: 140px;
+    height: 100px;
   }
 
   .hero__line {
@@ -164,6 +183,7 @@
 @media (max-width: 480px) {
   .hero__name {
     gap: 8px;
+    padding: 10px 2px 4px;
   }
 
   .hero__part,
@@ -173,8 +193,8 @@
   }
 
   .hero__photo {
-    width: 132px;
-    height: 94px;
+    width: 120px;
+    height: 86px;
   }
 }
 

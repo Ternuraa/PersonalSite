@@ -29,11 +29,12 @@
 }
 
 @media (max-width: 720px) {
+  /* same inset as footer — border has side gaps */
   .approach {
-    width: 100%;
-    max-width: 100%;
-    padding-left: var(--page-padding);
-    padding-right: var(--page-padding);
+    width: var(--content-width);
+    max-width: calc(100% - 2 * var(--page-padding));
+    padding-left: 0;
+    padding-right: 0;
     box-sizing: border-box;
   }
 
