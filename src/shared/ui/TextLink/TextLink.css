@@ -1,0 +1,31 @@
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: var(--text-nav);
+  line-height: var(--lh-nav);
+  white-space: nowrap;
+}
+
+.text-link__icon {
+  flex: none;
+  transform: rotate(0deg);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.text-link:hover .text-link__icon {
+  transform: rotate(-45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-link__icon {
+    transition: none;
+  }
+
+  .text-link:hover .text-link__icon {
+    transform: none;
+  }
+}
+
+

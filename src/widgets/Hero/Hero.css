@@ -1,0 +1,194 @@
+.hero {
+  width: var(--content-width);
+  max-width: calc(100% - 2 * var(--page-padding));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-64);
+}
+
+.hero__name {
+  display: flex;
+  align-items: center;
+  gap: var(--space-24);
+}
+
+.hero__part {
+  font-family: var(--font-display);
+  font-size: var(--text-name);
+  line-height: 1;
+  letter-spacing: -3px;
+  display: flex;
+  align-items: baseline;
+}
+
+/* Entrance on wrapper — hover stays on the letter itself */
+.hero__letter-enter,
+.hero__photo-enter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(48px);
+  animation: hero-name-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--i) * 0.12s);
+}
+
+.hero__letter {
+  display: inline-block;
+  transform: translateY(0);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+  cursor: default;
+}
+
+.hero__letter:hover {
+  transform: translateY(-22px);
+}
+
+/* Auto wave L → i → s → a, 1s after load */
+.hero__name.is-waving .hero__letter {
+  animation: hero-letter-lift 0.7s ease-in-out;
+  animation-delay: calc(var(--letter-i) * 0.14s);
+}
+
+@keyframes hero-letter-lift {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-22px);
+  }
+}
+
+.hero__photo-enter {
+  display: block;
+  flex: none;
+  line-height: 0;
+}
+
+.hero__photo {
+  width: 202px;
+  height: 144px;
+  object-fit: cover;
+}
+
+.hero__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Starts ~0.28s after name (L), so name leads the intro */
+.hero__line {
+  font-size: var(--text-heading);
+  line-height: var(--lh-heading);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: hero-line-up 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(0.28s + var(--i) * 0.28s);
+}
+
+@keyframes hero-name-up {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-line-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1100px) {
+  .hero__photo {
+    width: 160px;
+    height: 114px;
+  }
+
+  .hero__part {
+    letter-spacing: -2px;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero {
+    gap: var(--space-40);
+  }
+
+  .hero__name {
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero__part {
+    letter-spacing: -2px;
+  }
+
+  .hero__photo {
+    width: 120px;
+    height: 86px;
+  }
+
+  .hero__line {
+    white-space: normal;
+    max-width: 360px;
+  }
+
+  .hero__letter:hover {
+    transform: translateY(-12px);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__name {
+    gap: 8px;
+  }
+
+  .hero__photo {
+    width: 96px;
+    height: 68px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__letter-enter,
+  .hero__photo-enter {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .hero__letter {
+    transition: none;
+  }
+
+  .hero__letter:hover {
+    transform: none;
+  }
+
+  .hero__name.is-waving .hero__letter {
+    animation: none;
+  }
+
+  .hero__line {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}

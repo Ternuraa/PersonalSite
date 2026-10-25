@@ -1,0 +1,92 @@
+.statement {
+  width: 397px;
+  flex: none;
+}
+
+.statement__opening {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statement__number {
+  flex: 0 0 41px;
+  font-size: var(--text-count);
+  line-height: var(--lh-count);
+}
+
+.statement__heading {
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  white-space: nowrap;
+}
+
+.statement__body {
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+}
+
+/* About mobile 274:31 — number + text column */
+@media (max-width: 1100px) {
+  .about .statement {
+    width: 100%;
+    max-width: 280px;
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    column-gap: 20px;
+    align-items: start;
+  }
+
+  .about .statement__opening {
+    display: contents;
+  }
+
+  .about .statement__number {
+    grid-column: 1;
+    grid-row: 1 / span 10;
+    flex: none;
+    width: auto;
+    font-size: 13px;
+    line-height: 17px;
+    padding-top: 1px;
+  }
+
+  .about .statement__heading {
+    grid-column: 2;
+    font-size: 14px;
+    line-height: 19px;
+    white-space: normal;
+  }
+
+  .about .statement__body {
+    grid-column: 2;
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .about .statement__body br {
+    display: none;
+  }
+
+  .about .statement__body span::after {
+    content: ' ';
+  }
+
+  /* Other pages: simple full-width stack */
+  .approach .statement,
+  .work-intro .statement {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .approach .statement__opening,
+  .work-intro .statement__opening {
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  .approach .statement__heading,
+  .work-intro .statement__heading {
+    white-space: normal;
+  }
+}

@@ -1,0 +1,89 @@
+/* Design tokens — перенесены из Figma (Main, node-id 304:1124)
+   Цвета в макете: Text/Primary #000000, Surface/Default #FFFFFF,
+   обводки секций привязаны к переменной Border/Subtle (VariableID:167:121) #DFDFDF */
+:root {
+  /* Colors */
+  --color-text: #000000;
+  --color-text-muted: #999999; /* Details на экране About */
+  --color-bg: #ffffff;
+  --color-border: #dfdfdf;
+
+  /* Fonts: Arimo — основной шрифт макета; Buba — дисплейный (Li/sa) */
+  --font-main: 'Arimo', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Buba', 'Arimo', 'Helvetica Neue', sans-serif;
+
+  /* Type scale (Figma, px) — только целые */
+  --text-count: 14px; /* счётчики (3), номера 01/02 */
+  --text-nav: 20px; /* навигация, подписи секций, ссылки */
+  --text-body: 24px; /* основной текст, названия проектов */
+  --text-heading: 52px; /* заголовки Hero и «Избранные работы» */
+  --text-name: 150px; /* Li / sa в Hero */
+
+  /* Line heights — целые px (unitless дают дробные, напр. 1.1×52 = 57.2) */
+  --lh-count: 16px; /* 14 → 16 */
+  --lh-nav: 23px; /* 20 → 23 */
+  --lh-heading: 57px; /* 52 → 57 */
+  --lh-title: 62px; /* 52 → 62 */
+  --lh-body: 29px; /* 24 → 29 */
+
+  /* Spacing (из автолэйаутов макета) */
+  --space-2: 2px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-40: 40px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-120: 120px;
+
+  /* Layout */
+  --page-width: 1440px;
+  --content-width: 1360px;
+  --page-padding: 40px;
+  --layout-gap: var(--space-120);
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --text-heading: 40px;
+    --text-name: 110px;
+    --text-body: 22px;
+    --lh-heading: 44px;
+    --lh-title: 48px;
+    --lh-body: 26px;
+    --page-padding: 32px;
+    --layout-gap: 80px;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --text-heading: 32px;
+    --text-name: 72px;
+    --text-body: 20px;
+    --text-nav: 18px;
+    --lh-heading: 35px;
+    --lh-title: 38px;
+    --lh-body: 24px;
+    --lh-nav: 21px;
+    --page-padding: 20px;
+    --layout-gap: 64px;
+    --space-120: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --text-heading: 28px;
+    --text-name: 56px;
+    --text-body: 18px;
+    --text-nav: 16px;
+    --lh-heading: 31px;
+    --lh-title: 34px;
+    --lh-body: 22px;
+    --lh-nav: 18px;
+    --page-padding: 16px;
+    --layout-gap: 48px;
+  }
+}

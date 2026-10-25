@@ -1,0 +1,195 @@
+/* Colour tokens — override to re-skin the cursor:
+   --ink    underlying text colour (defaults to currentColor)
+   --ink-2  primary accent   --ink-3  secondary accent */
+:root {
+  --ink: currentColor;
+  --ink-2: #ff4fd8;
+  --ink-3: #4ff8ff;
+  --background: var(--color-bg, #ffffff);
+  --text-secondary: #999999;
+}
+
+@property --x {
+  syntax: '<length-percentage>';
+  inherits: true;
+  initial-value: 50%;
+}
+
+@property --y {
+  syntax: '<length-percentage>';
+  inherits: true;
+  initial-value: 50%;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  inherits: true;
+  initial-value: 0deg;
+}
+
+@property --speed {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
+}
+
+.cur {
+  --c: var(--ink-2); /* cursor primary colour  */
+  --c2: var(--ink-3); /* cursor accent colour   */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  cursor: none;
+  touch-action: none;
+}
+
+/* Site-wide overlay: covers the viewport, doesn't block clicks */
+.cur.cur--site {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: auto;
+  height: auto;
+  overflow: visible;
+  pointer-events: none;
+  display: block;
+  background: transparent;
+}
+
+html.has-serpent-cursor,
+html.has-serpent-cursor * {
+  cursor: none !important;
+}
+
+/* "hover" affordance — fades out once the pointer is inside */
+.cur-hint {
+  color: color-mix(in srgb, var(--text-secondary) 55%, transparent);
+  font-size: 11px;
+  letter-spacing: 3px;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.cur.is-active .cur-hint {
+  opacity: 0;
+}
+
+.cur.cur--site .cur-hint {
+  display: none;
+}
+
+/* underlying content — only revealed by the effects that act on it */
+.cur-word {
+  display: none;
+  font: 600 30px/1 'JetBrains Mono', monospace;
+  letter-spacing: 2px;
+  color: var(--ink);
+  pointer-events: none;
+  user-select: none;
+}
+
+.cur-blend .cur-word,
+.cur-spotlight .cur-word,
+.cur-magnet .cur-word {
+  display: block;
+}
+
+/* the follower — positioned from --x/--y, eased with a transition */
+.cursor {
+  position: absolute;
+  left: var(--x);
+  top: var(--y);
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--c);
+  transform: translate(-50%, -50%);
+  transition:
+    left 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+    top 0.16s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.2s ease,
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  will-change: left, top;
+}
+
+/* Hidden until we know the real pointer position */
+.cur.cur--site:not(.is-active) .cursor {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.cur.is-warping .cursor {
+  transition: none !important;
+}
+
+/* ---------- The cursors ----------
+   Each cursor paints with two tokens so a copied snippet can be re-skinned:
+     --ink-2  primary accent (hot magenta)   --ink-3  secondary (electric cyan)
+   Ambient keyframes are cur-prefixed to stay collision-free. */
+
+/* 06 Serpent — a chain of segments chasing the pointer like a tail */
+.cur-snake .cursor:not(.flag) {
+  width: calc(20px - var(--i) * 2px);
+  height: calc(20px - var(--i) * 2px);
+  background: color-mix(in srgb, var(--c) calc(100% - var(--i) * 11%), var(--c2));
+  transition-duration: calc(0.1s + var(--i) * 0.05s);
+  z-index: calc(10 - var(--i));
+}
+
+/* 13 Tagalong — a pill label that trails a step behind the pointer */
+.cur-label .cursor.flag,
+.cur .cursor.flag {
+  width: auto;
+  height: auto;
+  border-radius: 9999px;
+  background: var(--c);
+  color: var(--background);
+  font-family: 'Arimo', 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 6px 12px;
+  white-space: nowrap;
+  transition-duration: 0.22s;
+  transform: translate(-50%, -50%) translate(16px, 16px);
+  z-index: 20;
+}
+
+/* Default: serpent visible, VIEW pill hidden */
+.cur .cursor.flag {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -50%) translate(16px, 16px) scale(0.85);
+}
+
+/* On project cards: hide serpent, show VIEW ↗ */
+.cur.is-label .cursor:not(.flag) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cur.is-label .cursor.flag {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) translate(16px, 16px) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce), (pointer: coarse) {
+  .cur-snake .cursor,
+  .cur .cursor.flag {
+    transition: none;
+  }
+
+  html.has-serpent-cursor,
+  html.has-serpent-cursor * {
+    cursor: auto !important;
+  }
+
+  .cur.cur--site {
+    display: none;
+  }
+}

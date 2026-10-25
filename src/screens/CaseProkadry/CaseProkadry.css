@@ -1,0 +1,164 @@
+/* Figma CaseProКадры 499:808 — desktop + responsive */
+
+.case-prokadry {
+  width: min(var(--content-width), 100%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap);
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.case-prokadry__hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+  padding: var(--space-40) 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.case-prokadry__title {
+  font-size: var(--text-heading);
+  line-height: var(--lh-title);
+}
+
+.case-prokadry__subtitle {
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+  max-width: 960px;
+}
+
+.case-prokadry__chapter {
+  width: 100%;
+}
+
+.case-prokadry__chapter--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 24px;
+  align-items: start;
+}
+
+.case-prokadry__chapter--stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap);
+}
+
+.case-prokadry__copy--stack {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 668px;
+}
+
+.case-prokadry__copy--pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: 32px;
+  width: 100%;
+}
+
+.case-prokadry__block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+  min-width: 0;
+}
+
+.case-statement {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.case-statement__opening {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-8);
+}
+
+.case-statement__number {
+  flex: 0 0 28px;
+  width: 28px;
+  font-size: var(--text-count);
+  line-height: 16px;
+  padding-top: 6px;
+}
+
+.case-statement__heading {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+}
+
+.case-statement__body {
+  margin: 0;
+  padding-left: 36px;
+  font-size: var(--text-body);
+  line-height: var(--lh-body);
+}
+
+.case-prokadry__media {
+  width: 100%;
+  max-width: 668px;
+  justify-self: end;
+}
+
+.case-prokadry__media--wide {
+  max-width: none;
+  justify-self: stretch;
+}
+
+.case-prokadry__cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 668 / 602;
+  object-fit: cover;
+}
+
+.case-prokadry__cover--wide {
+  aspect-ratio: 1360 / 1226;
+}
+
+@media (max-width: 1360px) {
+  .case-prokadry {
+    width: 100%;
+    padding: 0 var(--page-padding);
+  }
+}
+
+@media (max-width: 900px) {
+  .case-prokadry__chapter--split,
+  .case-prokadry__copy--pair {
+    grid-template-columns: 1fr;
+    row-gap: var(--space-40);
+  }
+
+  .case-prokadry__copy--stack,
+  .case-prokadry__media {
+    max-width: none;
+  }
+
+  .case-prokadry__media {
+    justify-self: stretch;
+  }
+}
+
+@media (max-width: 720px) {
+  .case-prokadry__hero {
+    padding: var(--space-24) 0;
+  }
+
+  .case-statement__body {
+    padding-left: 0;
+  }
+
+  .case-prokadry__chapter--stack {
+    gap: var(--space-40);
+  }
+}

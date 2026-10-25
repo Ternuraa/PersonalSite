@@ -1,0 +1,33 @@
+.letter-hover {
+  display: inline-flex;
+}
+
+.letter-hover__char {
+  display: inline-block;
+  transform: translateY(0);
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+.letter-hover__char:hover {
+  transform: translateY(-6px);
+}
+
+.letter-hover__char--space {
+  /* nbsp сам задаёт ширину; без em, чтобы не ловить дробные px */
+  width: auto;
+}
+
+.letter-hover__char--space:hover {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter-hover__char {
+    transition: none;
+  }
+
+  .letter-hover__char:hover {
+    transform: none;
+  }
+}

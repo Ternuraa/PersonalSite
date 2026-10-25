@@ -1,0 +1,74 @@
+/* Desktop: Figma about side-by-side */
+.about {
+  width: 100%;
+  max-width: min(var(--content-width), calc(100% - 2 * var(--page-padding)));
+  padding-left: 115px;
+  display: flex;
+  align-items: flex-start;
+  gap: 140px;
+  box-sizing: border-box;
+}
+
+.about__photo-wrap {
+  flex: 0 0 auto;
+  position: sticky;
+  top: var(--space-40);
+}
+
+.about__photo {
+  width: 322px;
+  max-width: 100%;
+  height: 396px;
+  object-fit: cover;
+  display: block;
+}
+
+.about__content {
+  flex: 1 1 0;
+  min-width: 0;
+  width: auto;
+  max-width: 782px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--layout-gap);
+}
+
+/* Mobile: Figma 274:31 — 390 structure */
+@media (max-width: 1100px) {
+  .about {
+    padding: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 78px;
+    max-width: 100%;
+  }
+
+  .about__photo-wrap {
+    position: static;
+    align-self: center;
+    width: 156px;
+  }
+
+  .about__photo {
+    width: 156px;
+    height: 208px;
+  }
+
+  .about__content {
+    width: 100%;
+    max-width: none;
+    gap: 64px;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    gap: 64px;
+  }
+
+  .about__content {
+    gap: 56px;
+  }
+}

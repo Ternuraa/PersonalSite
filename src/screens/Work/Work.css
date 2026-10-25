@@ -1,0 +1,14 @@
+.work-projects {
+  width: var(--content-width);
+  max-width: calc(100% - 2 * var(--page-padding));
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: var(--space-24);
+  row-gap: var(--space-40);
+}
+
+@media (max-width: 900px) {
+  .work-projects {
+    grid-template-columns: 1fr;
+  }
+}

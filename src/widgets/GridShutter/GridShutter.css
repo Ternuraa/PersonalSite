@@ -1,0 +1,36 @@
+.grid-shutter {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.grid-shutter.is-active {
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.grid-shutter__row {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+.grid-shutter__block {
+  flex: 1;
+  min-width: 0;
+  background: #0a0a0a;
+  transform: scaleX(0);
+  will-change: transform;
+}
+
+.grid-shutter__row:nth-child(odd) .grid-shutter__block {
+  transform-origin: left center;
+}
+
+.grid-shutter__row:nth-child(even) .grid-shutter__block {
+  transform-origin: right center;
+}
