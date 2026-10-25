@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Arimo:wght@400;500;600;700&display=swap');
 @import '../shared/styles/variables.css';
 
+@font-face {
+  font-family: 'Buba';
+  src: url('/fonts/Buba-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
 }
