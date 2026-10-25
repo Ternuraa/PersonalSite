@@ -62,7 +62,7 @@
 
 @media (max-width: 720px) {
   .header {
-    height: 56px;
+    height: 64px;
     padding: 0 16px;
   }
 
@@ -72,12 +72,17 @@
   }
 
   .header__signature {
-    font-size: 14px;
+    font-size: 18px;
+    line-height: 22px;
   }
 
   .header__menu-button {
     display: inline-flex;
     margin-left: auto;
+    min-width: 72px;
+    height: 34px;
+    padding: 0 16px;
+    font-size: 16px;
   }
 
   .header__panel {
@@ -86,7 +91,7 @@
     inset: 0;
     z-index: 40;
     background: var(--color-bg);
-    padding: 72px 16px 40px;
+    padding: 80px 16px 40px;
   }
 
   .header__panel.is-open {

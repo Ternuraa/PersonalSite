@@ -155,16 +155,9 @@
     max-width: 360px;
   }
 
-  .hero__letter {
-    transition: none;
-  }
-
+  /* hover lift off on touch; auto-wave after 1s stays */
   .hero__letter:hover {
     transform: none;
-  }
-
-  .hero__name.is-waving .hero__letter {
-    animation: none;
   }
 }
 
