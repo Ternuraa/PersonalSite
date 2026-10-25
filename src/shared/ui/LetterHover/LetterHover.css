@@ -22,6 +22,16 @@
   transform: none;
 }
 
+@media (max-width: 720px), (hover: none) {
+  .letter-hover__char {
+    transition: none;
+  }
+
+  .letter-hover__char:hover {
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .letter-hover__char {
     transition: none;

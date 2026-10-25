@@ -76,17 +76,53 @@
   .approach .statement,
   .work-intro .statement {
     width: 100%;
-    max-width: 100%;
+    max-width: none;
   }
 
   .approach .statement__opening,
   .work-intro .statement__opening {
     justify-content: flex-start;
     align-items: flex-start;
+    width: 100%;
   }
 
   .approach .statement__heading,
   .work-intro .statement__heading {
     white-space: normal;
+  }
+}
+
+@media (max-width: 720px) {
+  .approach .statement {
+    width: 100%;
+    max-width: none;
+  }
+
+  .approach .statement__opening {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 12px;
+  }
+
+  .approach .statement__number {
+    flex: none;
+    padding-top: 4px;
+  }
+
+  .approach .statement__heading,
+  .approach .statement__body {
+    width: 100%;
+    max-width: none;
+    white-space: normal;
+  }
+
+  .approach .statement__body br {
+    display: none;
+  }
+
+  .approach .statement__body span::after {
+    content: ' ';
   }
 }

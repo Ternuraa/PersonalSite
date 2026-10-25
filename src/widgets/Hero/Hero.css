@@ -16,6 +16,7 @@
 .hero__part {
   font-family: var(--font-display);
   font-size: var(--text-name);
+  font-weight: 400;
   line-height: 1;
   letter-spacing: -3px;
   display: flex;
@@ -34,6 +35,8 @@
 
 .hero__letter {
   display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 400;
   transform: translateY(0);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
@@ -132,11 +135,13 @@
 
   .hero__name {
     gap: 12px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
   }
 
-  .hero__part {
+  .hero__part,
+  .hero__letter {
+    font-family: var(--font-display);
     letter-spacing: -2px;
   }
 
@@ -150,14 +155,28 @@
     max-width: 360px;
   }
 
+  .hero__letter {
+    transition: none;
+  }
+
   .hero__letter:hover {
-    transform: translateY(-12px);
+    transform: none;
+  }
+
+  .hero__name.is-waving .hero__letter {
+    animation: none;
   }
 }
 
 @media (max-width: 480px) {
   .hero__name {
     gap: 8px;
+  }
+
+  .hero__part,
+  .hero__letter {
+    font-family: var(--font-display);
+    letter-spacing: -1px;
   }
 
   .hero__photo {

@@ -18,6 +18,16 @@
   transform: rotate(-45deg);
 }
 
+@media (max-width: 720px), (hover: none) {
+  .text-link__icon {
+    transition: none;
+  }
+
+  .text-link:hover .text-link__icon {
+    transform: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .text-link__icon {
     transition: none;
