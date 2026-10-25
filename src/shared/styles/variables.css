@@ -60,7 +60,7 @@
 @media (max-width: 720px) {
   :root {
     --text-heading: 32px;
-    --text-name: 72px;
+    --text-name: 96px;
     --text-body: 20px;
     --text-nav: 18px;
     --lh-heading: 35px;
@@ -76,7 +76,7 @@
 @media (max-width: 480px) {
   :root {
     --text-heading: 28px;
-    --text-name: 56px;
+    --text-name: 84px;
     --text-body: 18px;
     --text-nav: 16px;
     --lh-heading: 31px;
