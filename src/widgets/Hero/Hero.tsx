@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import heroPhoto from '../../assets/hero-photo.webp'
+import { usePreloaderReady } from '@/widgets/Preloader/PreloaderContext'
 import './Hero.css'
 
 const leftLetters = ['L', 'i']
@@ -9,8 +10,10 @@ const rightLetters = ['s', 'a']
 
 export default function Hero() {
   const [waving, setWaving] = useState(false)
+  const ready = usePreloaderReady()
 
   useEffect(() => {
+    if (!ready) return
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const start = window.setTimeout(() => setWaving(true), 1000)
@@ -20,7 +23,7 @@ export default function Hero() {
       window.clearTimeout(start)
       window.clearTimeout(end)
     }
-  }, [])
+  }, [ready])
 
   return (
     <section className="hero">

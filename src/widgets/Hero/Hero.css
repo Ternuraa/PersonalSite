@@ -23,12 +23,17 @@
   align-items: baseline;
 }
 
-/* Entrance on wrapper — hover stays on the letter itself */
+/* Entrance on wrapper — hover stays on the letter itself.
+   Waits for preloader (`html.is-app-ready`) so the motion isn't spent behind it. */
 .hero__letter-enter,
 .hero__photo-enter {
   display: inline-block;
   opacity: 0;
   transform: translateY(48px);
+}
+
+html.is-app-ready .hero__letter-enter,
+html.is-app-ready .hero__photo-enter {
   animation: hero-name-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: calc(var(--i) * 0.12s);
 }
@@ -91,6 +96,9 @@
   white-space: nowrap;
   opacity: 0;
   transform: translateY(100%);
+}
+
+html.is-app-ready .hero__line {
   animation: hero-line-up 1.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
   animation-delay: calc(0.28s + var(--i) * 0.28s);
 }
