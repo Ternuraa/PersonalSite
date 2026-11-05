@@ -1,0 +1,129 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background: var(--color-bg);
+  pointer-events: none;
+  color: var(--color-text);
+}
+
+.preloader__circle-wrap {
+  position: absolute;
+  left: 80px;
+  bottom: 40px;
+  z-index: 2;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.preloader__circle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  transform: rotate(-90deg);
+  backface-visibility: hidden;
+  will-change: transform;
+  --dashOffset: 880;
+  --dashOffsetBorder: 0;
+}
+
+.preloader__circle-bg,
+.preloader__circle-progress {
+  fill: none;
+  stroke-width: 1;
+  stroke-dasharray: 880;
+}
+
+.preloader__circle-bg {
+  stroke: var(--color-border);
+  stroke-dashoffset: var(--dashOffsetBorder);
+}
+
+.preloader__circle-progress {
+  stroke: var(--color-text);
+  stroke-dashoffset: var(--dashOffset);
+}
+
+.preloader__percent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-main);
+  font-size: 80px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.preloader__percent-value,
+.preloader__percent-sign {
+  display: inline-block;
+}
+
+.preloader__text {
+  display: none;
+  position: absolute;
+  left: 376px;
+  bottom: 40px;
+  z-index: 2;
+  margin: 0;
+  font-family: var(--font-main);
+  font-size: 14px;
+  line-height: 28px;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.preloader__text-line {
+  display: block;
+  overflow: hidden;
+}
+
+.preloader__text-line > span {
+  display: block;
+  clip-path: inset(0% 0 0% 0);
+  will-change: transform, clip-path;
+}
+
+html.is-preloading,
+html.is-preloading body {
+  overflow: hidden;
+}
+
+@media (min-width: 1024px) {
+  .preloader__text {
+    display: block;
+  }
+}
+
+@media (max-width: 1023px) {
+  .preloader__circle-wrap {
+    left: 20px;
+    bottom: 20px;
+    width: 140px;
+    height: 140px;
+  }
+
+  .preloader__percent {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .preloader__circle-wrap {
+    left: 16px;
+    bottom: 16px;
+  }
+}
