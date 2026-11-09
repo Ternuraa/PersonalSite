@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import heroPhoto from '../../assets/hero-photo.webp'
+import carusel from '../../assets/carusel.webp'
 import { usePreloaderReady } from '@/widgets/Preloader/PreloaderContext'
 import './Hero.css'
 
@@ -50,8 +50,8 @@ export default function Hero() {
         <span className="hero__photo-enter" style={{ ['--i' as string]: 2 }}>
           <img
             className="hero__photo"
-            src={typeof heroPhoto === 'string' ? heroPhoto : heroPhoto.src}
-            alt="Обложка проекта «Возьму»"
+            src={typeof carusel === 'string' ? carusel : carusel.src}
+            alt="Карусель проектов"
             width={202}
             height={144}
           />
