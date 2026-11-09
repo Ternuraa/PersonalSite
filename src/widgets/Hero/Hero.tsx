@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import carusel from '../../assets/carusel.webp'
+import carusel from '../../assets/carusel.jpg'
 import { usePreloaderReady } from '@/widgets/Preloader/PreloaderContext'
 import './Hero.css'
 
