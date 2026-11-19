@@ -125,4 +125,46 @@
   .approach .statement__body span::after {
     content: ' ';
   }
+
+  /* Work intro: number + one flowing paragraph, no orphaned wraps */
+  .work-intro .statement {
+    position: relative;
+    width: 100%;
+    max-width: none;
+    padding-left: 32px;
+    box-sizing: border-box;
+  }
+
+  .work-intro .statement__opening {
+    display: contents;
+  }
+
+  .work-intro .statement__number {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    flex: none;
+    width: 20px;
+    padding-top: 0;
+  }
+
+  .work-intro .statement__heading,
+  .work-intro .statement__body {
+    display: inline;
+    width: auto;
+    max-width: none;
+    white-space: normal;
+  }
+
+  .work-intro .statement__heading::after {
+    content: ' ';
+  }
+
+  .work-intro .statement__body br {
+    display: none;
+  }
+
+  .work-intro .statement__body span::after {
+    content: ' ';
+  }
 }
