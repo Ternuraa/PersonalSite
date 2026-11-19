@@ -143,13 +143,13 @@ html.is-app-ready .hero__line {
   }
 
   .hero__name {
-    gap: 8px;
+    gap: 10px;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
-    width: 100%;
     max-width: 100%;
-    padding: 12px 6px 8px;
+    /* room for Buba outline ink so html/body overflow-x:clip doesn't crop it */
+    padding: 10px 8px 6px;
     overflow: visible;
     box-sizing: border-box;
   }
@@ -157,7 +157,7 @@ html.is-app-ready .hero__line {
   .hero__part {
     font-family: var(--font-display);
     letter-spacing: 0;
-    line-height: 1.2;
+    line-height: 1.12;
     overflow: visible;
     flex: none;
   }
@@ -166,9 +166,8 @@ html.is-app-ready .hero__line {
     font-family: var(--font-display);
     letter-spacing: 0;
     overflow: visible;
-    padding: 0 3px;
-    /* Buba outline ink extends past the advance box */
-    margin: 0 -1px;
+    /* outline stroke sits outside the advance width */
+    padding-inline: 2px;
   }
 
   .hero__letter-enter {
@@ -176,8 +175,8 @@ html.is-app-ready .hero__line {
   }
 
   .hero__photo {
-    width: 112px;
-    height: 80px;
+    width: 140px;
+    height: 100px;
   }
 
   .hero__line {
@@ -197,8 +196,8 @@ html.is-app-ready .hero__line {
 
 @media (max-width: 480px) {
   .hero__name {
-    gap: 6px;
-    padding: 14px 8px 8px;
+    gap: 8px;
+    padding: 12px 6px 6px;
   }
 
   .hero__part,
@@ -207,13 +206,9 @@ html.is-app-ready .hero__line {
     letter-spacing: 0;
   }
 
-  .hero__letter {
-    padding: 0 4px;
-  }
-
   .hero__photo {
-    width: 96px;
-    height: 68px;
+    width: 120px;
+    height: 86px;
   }
 }
 
