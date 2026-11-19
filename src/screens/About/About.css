@@ -46,12 +46,12 @@
   .about__photo-wrap {
     position: static;
     align-self: center;
-    width: 156px;
+    width: 200px;
   }
 
   .about__photo {
-    width: 156px;
-    height: 208px;
+    width: 200px;
+    height: 246px;
   }
 
   .about__content {
