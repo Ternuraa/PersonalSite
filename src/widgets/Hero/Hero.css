@@ -143,29 +143,32 @@ html.is-app-ready .hero__line {
   }
 
   .hero__name {
-    gap: 10px;
+    gap: 8px;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
     max-width: 100%;
-    padding: 8px 4px 4px;
+    padding: 12px 6px 8px;
     overflow: visible;
     box-sizing: border-box;
   }
 
   .hero__part {
     font-family: var(--font-display);
-    letter-spacing: -2px;
-    line-height: 1.12;
+    letter-spacing: 0;
+    line-height: 1.2;
     overflow: visible;
     flex: none;
   }
 
   .hero__letter {
     font-family: var(--font-display);
-    letter-spacing: -2px;
+    letter-spacing: 0;
     overflow: visible;
-    padding: 0 1px;
+    padding: 0 3px;
+    /* Buba outline ink extends past the advance box */
+    margin: 0 -1px;
   }
 
   .hero__letter-enter {
@@ -173,8 +176,8 @@ html.is-app-ready .hero__line {
   }
 
   .hero__photo {
-    width: 140px;
-    height: 100px;
+    width: 112px;
+    height: 80px;
   }
 
   .hero__line {
@@ -186,23 +189,41 @@ html.is-app-ready .hero__line {
   .hero__letter:hover {
     transform: none;
   }
+
+  .hero__name.is-waving .hero__letter {
+    animation-name: hero-letter-lift-mobile;
+  }
 }
 
 @media (max-width: 480px) {
   .hero__name {
-    gap: 8px;
-    padding: 10px 2px 4px;
+    gap: 6px;
+    padding: 14px 8px 8px;
   }
 
   .hero__part,
   .hero__letter {
     font-family: var(--font-display);
-    letter-spacing: -1px;
+    letter-spacing: 0;
+  }
+
+  .hero__letter {
+    padding: 0 4px;
   }
 
   .hero__photo {
-    width: 120px;
-    height: 86px;
+    width: 96px;
+    height: 68px;
+  }
+}
+
+@keyframes hero-letter-lift-mobile {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  45% {
+    transform: translateY(-12px);
   }
 }
 
