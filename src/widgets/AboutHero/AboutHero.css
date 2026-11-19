@@ -25,20 +25,20 @@
   padding-left: 101px;
 }
 
-/* Mobile 274:31 — centered flowing text */
+/* Mobile — left-aligned, first-line indent like desktop */
 @media (max-width: 1100px) {
   .about-hero__intro {
     gap: 40px;
-    align-items: center;
+    align-items: stretch;
   }
 
   .about-hero__paragraph {
     display: block;
     width: 100%;
-    max-width: 360px;
-    margin: 0 auto;
-    text-align: center;
-    text-indent: 32px;
+    max-width: none;
+    margin: 0;
+    text-align: left;
+    text-indent: 48px;
     font-size: 20px;
     line-height: 27px;
   }
@@ -53,5 +53,13 @@
 
   .about-hero__line::after {
     content: ' ';
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero__paragraph {
+    text-indent: 40px;
+    font-size: 18px;
+    line-height: 26px;
   }
 }
