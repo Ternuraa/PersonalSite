@@ -96,29 +96,34 @@ export default function Header() {
         aria-hidden={!menuOpen}
       >
         <div className="header__panel-inner">
-          <p className="header__panel-label">[ Навигация ]</p>
-          <nav className="header__panel-nav" aria-label="Мобильная навигация">
-            <NavLink
-              label="Работы"
-              href="/work"
-              count="(2)"
-              isActive={pathname === '/work' || pathname.startsWith('/work/')}
-              onNavigate={closeMenu}
-            />
-            <NavLink
-              label="Обо мне"
-              href="/about"
-              isActive={pathname === '/about'}
-              onNavigate={closeMenu}
-            />
+          <div className="header__panel-main">
+            <p className="header__panel-label">[ Навигация ]</p>
+            <nav className="header__panel-nav" aria-label="Мобильная навигация">
+              <NavLink
+                label="Работы"
+                href="/work"
+                count="(2)"
+                isActive={pathname === '/work' || pathname.startsWith('/work/')}
+                onNavigate={closeMenu}
+              />
+              <NavLink
+                label="Обо мне"
+                href="/about"
+                isActive={pathname === '/about'}
+                onNavigate={closeMenu}
+              />
+            </nav>
+          </div>
+          <div className="header__panel-footer">
             <a
               className="header__panel-contact"
               href="mailto:savelievalisa@gmail.com"
+              aria-label="Связаться"
               onClick={closeMenu}
             >
               <LetterHover text="Связаться" />
             </a>
-          </nav>
+          </div>
         </div>
       </div>
     </header>

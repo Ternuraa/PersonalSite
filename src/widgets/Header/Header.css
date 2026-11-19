@@ -91,23 +91,32 @@
     inset: 0;
     z-index: 40;
     background: var(--color-bg);
-    padding: 80px 16px 40px;
+    padding: 80px 16px 32px;
   }
 
   .header__panel.is-open {
-    display: block;
+    display: flex;
+    flex-direction: column;
   }
 
   .header__panel-inner {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    flex: 1;
+    min-height: 0;
     max-width: 360px;
+    width: 100%;
+  }
+
+  .header__panel-main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .header__panel-label {
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 13px;
+    line-height: 16px;
     color: var(--color-text-muted);
   }
 
@@ -115,22 +124,29 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 18px;
+    gap: 16px;
   }
 
   .header__panel-nav .header__link {
-    font-size: 32px;
-    line-height: 35px;
-    gap: 6px;
+    font-size: 24px;
+    line-height: 28px;
+    gap: 4px;
   }
 
   .header__panel-nav .header__count {
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  /* CTA отдельно от страниц — у низа панели, удобно для большого пальца */
+  .header__panel-footer {
+    margin-top: auto;
+    padding-top: 28px;
+    border-top: 1px solid var(--color-border);
   }
 
   .header__panel-contact {
-    margin-top: 8px;
+    display: inline-block;
     font-size: 18px;
     line-height: 22px;
   }
