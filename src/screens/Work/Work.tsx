@@ -15,11 +15,10 @@ const projects = [
   },
   {
     number: '02',
-    title: 'Сервер бронирования краткосрочного жилья',
+    title: 'Сервис бронирования краткосрочного жилья',
     image: bookingCover,
     imageAlt: 'Экран сервиса бронирования краткосрочного жилья',
-    dimmed: true,
-    note: 'в разработке',
+    href: '/work/harbor',
   },
 ]
 

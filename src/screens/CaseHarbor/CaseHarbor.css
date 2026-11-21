@@ -1,0 +1,240 @@
+/* Figma CaseHarbor 545:580 — gaps: 72 между блоками, 24 заголовок→текст, картинки x=40 w=1360 */
+
+.case-harbor {
+  width: var(--content-width);
+  max-width: calc(100% - 2 * var(--page-padding));
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.case-harbor .section-label {
+  font-size: 24px;
+  line-height: 29px;
+}
+
+/* Hero + cover: в макете 32px между текстовым блоком и обложкой */
+.case-harbor__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+}
+
+/* Figma 545:581 — padding 40, gap 16, text #181818, badges row 40 */
+.case-harbor__hero {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px;
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.case-harbor__title {
+  margin: 0;
+  width: 100%;
+  font-size: 52px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #181818;
+}
+
+.case-harbor__hero-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+.case-harbor__subtitle {
+  margin: 0;
+  width: 100%;
+  font-size: 24px;
+  line-height: 1.2;
+  font-weight: 400;
+  color: #181818;
+  text-align: center;
+}
+
+.case-harbor__badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 40px;
+}
+
+.case-harbor__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 400;
+  color: #000;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+/* Картинки на всю ширину контента (= 40px слева/справа от края страницы 1440) */
+.case-harbor__media {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.case-harbor__section {
+  width: 100%;
+  max-width: 898px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  scroll-margin-top: 96px;
+}
+
+.case-harbor__section--full {
+  max-width: none;
+}
+
+.case-harbor__heading {
+  margin: 0;
+  font-size: 52px;
+  line-height: 62px;
+}
+
+.case-harbor__lead,
+.case-harbor__text {
+  margin: 0;
+  font-size: 20px;
+  line-height: 32px;
+  color: #1f1f1f;
+}
+
+/* 24px: заголовок → текст / [лейбл] → контент / между подблоками */
+.case-harbor__stack {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Description: 8px между абзацами */
+.case-harbor__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.case-harbor__copy--loose {
+  gap: 12px;
+}
+
+.case-harbor__block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.case-harbor__list {
+  margin: 0;
+  padding-left: 1.5em;
+  font-size: 20px;
+  line-height: 32px;
+  color: #1f1f1f;
+}
+
+.case-harbor__list li + li {
+  margin-top: 24px;
+}
+
+.case-harbor__toc {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.case-harbor__toc-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 20px;
+  line-height: 32px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.case-harbor__toc-item:hover {
+  opacity: 0.7;
+}
+
+.case-harbor__toc-num {
+  flex: 0 0 auto;
+  font-size: 18px;
+  line-height: 28px;
+  color: #2cb2fa;
+}
+
+@media (max-width: 1100px) {
+  .case-harbor__title,
+  .case-harbor__heading {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  .case-harbor__hero {
+    padding: 32px;
+  }
+}
+
+@media (max-width: 720px) {
+  .case-harbor {
+    gap: 64px;
+  }
+
+  .case-harbor__intro {
+    gap: 24px;
+  }
+
+  .case-harbor__hero {
+    padding: 24px 0;
+  }
+
+  .case-harbor__title,
+  .case-harbor__heading {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .case-harbor__subtitle {
+    font-size: 20px;
+    line-height: 1.2;
+  }
+
+  .case-harbor__lead,
+  .case-harbor__text,
+  .case-harbor__list,
+  .case-harbor__toc-item {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .case-harbor .section-label {
+    font-size: 20px;
+    line-height: 24px;
+  }
+}
